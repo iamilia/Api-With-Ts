@@ -6,4 +6,6 @@ app.use("/reminders", RouterReminders)
 app.get("/", (req, res) => {
     res.end("hello wolrd")
 });
-app.listen(8000, () => console.log("server started"))
+app.listen(8000, () => { 
+    console.log("server started")
+})
