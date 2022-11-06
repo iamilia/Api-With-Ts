@@ -1,8 +1,8 @@
 import * as mysql from 'mysql2/promise';
 
 
-export async function Execute(sql : string, param : Array<number | string>) {
-    let err: unknown
+export async function Execute<T>(sql : string, param : Array<number | string>) {
+    let err: any
     let __rows: mysql.FieldPacket[]
     let connection = await mysql.createConnection({
         host: 'localhost',
@@ -14,16 +14,8 @@ export async function Execute(sql : string, param : Array<number | string>) {
         err = rows
     } 
     );
-    return await new Promise((reject, resolve) => {
+    return await new Promise<T>((reject, resolve) => {
         if (err) return reject(err)
         resolve(__rows)
     })  
 }
-
-// m.Execute("SELECT * FROM `table` WHERE name = ?", ["Page"]).then((v) => {
-//     if (typeof v === "object" && v) {
-        
-//     }
-// }).catch(e => console.error(e))
-
-// import * as m from "./src/models/mysql";
