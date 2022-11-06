@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
 });
 app.listen(8000, () => { 
     console.log("server started")
-    Execute<string[] | any>("SELECT * FROM `table` WHERE name = ?", ["ALien"]).then((v) => {
-        console.log(v[0]?.name);
-    }).catch(e => console.error(e))
+    // Execute<string[] | any>("SELECT * FROM `table` WHERE name = ?", ["ALien"]).then((v) => {
+    //     console.log(v[0]?.name);
+    // }).catch(e => console.error(e)) This an Exmp for Check Model is Working ok
 })
