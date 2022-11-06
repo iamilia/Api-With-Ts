@@ -17,8 +17,8 @@ router.post("/", (req, res) =>{
         if (!v.hasOwnProperty("affectedRows")) return;
         const {affectedRows, insertId} = v as SqlInsert;
         console.log(affectedRows, insertId); // You Can See here affectedRows and insertid to console
+        res.status(201).json(reminder)
     }).catch(err => console.error(err)); // if you look here and test it you can check it is worked good
-    res.status(201).json(reminder)
 })
 
 export default router;
