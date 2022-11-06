@@ -1,5 +1,5 @@
 import express from "express";
-import { Execute } from "./src/models/mysql";
+// import { Execute } from "./src/models/mysql";
 import  RouterReminders  from "./src/routers/reminders"
 const app = express()
 app.use(express.json())

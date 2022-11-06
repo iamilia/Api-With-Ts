@@ -19,3 +19,8 @@ export async function Execute<T, T2>(sql : string, param : T2) {
         resolve(__rows)
     })  
 }
+
+export interface SqlInsert {
+    affectedRows : number;
+    insertId : number;
+}
