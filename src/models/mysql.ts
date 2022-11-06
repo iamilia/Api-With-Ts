@@ -23,4 +23,8 @@ export async function Execute<T, T2>(sql : string, param : T2) {
 export interface SqlInsert {
     affectedRows : number;
     insertId : number;
+    fieldCount: number,
+    info: string,
+    serverStatus: number,
+    warningStatus: number
 }
