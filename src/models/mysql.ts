@@ -1,10 +1,10 @@
 import * as mysql from 'mysql2/promise';
 
 
-export function Execute<T, T2>(sql : string, param : T2) {
+export async function Execute<T, T2>(sql : string, param : T2) {
     let err: any
     let __rows: mysql.FieldPacket[]
-    mysql.createConnection({
+    await mysql.createConnection({
         host: 'localhost',
         user: 'root',
         database: 'test'
@@ -13,9 +13,9 @@ export function Execute<T, T2>(sql : string, param : T2) {
             __rows = fields
             err = rows
         });
-        conn.end()
+        await conn.end()
     })
-    return new Promise<T>((reject, resolve) => {
+    return await new Promise<T>((reject, resolve) => {
         if (err) return reject(err)
         resolve(__rows)
     })  
