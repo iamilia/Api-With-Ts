@@ -1,7 +1,7 @@
 import * as mysql from 'mysql2/promise';
 
 
-export async function Execute<T>(sql : string, param : Array<number | string>) {
+export async function Execute<T, T2>(sql : string, param : T2) {
     let err: any
     let __rows: mysql.FieldPacket[]
     let connection = await mysql.createConnection({
